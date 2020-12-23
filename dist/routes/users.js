@@ -40,10 +40,10 @@ var router = express.Router();
 router.get("/", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, db.query("select * from users;", function (err, result) {
+            case 0: return [4 /*yield*/, db.query("select * from users", function (err, result) {
                     if (err)
                         throw err;
-                    res.send(result);
+                    return res.send(result);
                 })];
             case 1:
                 _a.sent();
@@ -71,7 +71,7 @@ router.post("/", function (req, res) { return __awaiter(void 0, void 0, void 0, 
         switch (_a.label) {
             case 0:
                 user = req.body;
-                return [4 /*yield*/, db.query("insert into users(first_name, last_name, pass " + (user.article ? ", article" : "") + ") values ('" + user.first_name + "', '" + user.last_name + "', '" + user.pass + "'" + (user.article ? user.article : "") + ")", function (err, result) {
+                return [4 /*yield*/, db.query("insert into users(first_name, last_name, pass) values ('" + user.first_name + "', '" + user.last_name + "', '" + user.pass + "')", function (err, result) {
                         if (err)
                             throw err;
                         console.log(result);
@@ -83,10 +83,65 @@ router.post("/", function (req, res) { return __awaiter(void 0, void 0, void 0, 
         }
     });
 }); });
-router.put("/:id", function (req, res) { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
-    return [2 /*return*/];
-}); }); });
-router.delete("/:id", function (req, res) { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
-    return [2 /*return*/];
-}); }); });
+router.put("/:id", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var user;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                user = req.body;
+                return [4 /*yield*/, db.query("update users set first_name='" + user.first_name + "', last_name='" + user.last_name + "' where id=" + req.params.id, function (err, result) {
+                        if (err)
+                            throw err;
+                        console.log(result);
+                        return res.sendStatus(200);
+                    })];
+            case 1:
+                _a.sent();
+                return [2 /*return*/];
+        }
+    });
+}); });
+router.delete("/:id", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, db.query("delete from users where id=" + req.params.id, function (err, result) {
+                    if (err)
+                        throw err;
+                    return res.send("User deleted").sendStatus(200);
+                })];
+            case 1:
+                _a.sent();
+                return [2 /*return*/];
+        }
+    });
+}); });
+router.get("/:id/articles/", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, db.query("select title, body from articles where articles.id=" + req.params.id, function (err, result) {
+                    if (err)
+                        throw err;
+                    return res.send(result);
+                })];
+            case 1:
+                _a.sent();
+                return [2 /*return*/];
+        }
+    });
+}); });
+// Dev utilities
+router.delete("/", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, db.query("delete from users", function (err, result) {
+                    if (err)
+                        throw err;
+                    return res.send("All users deleted").sendStatus(200);
+                })];
+            case 1:
+                _a.sent();
+                return [2 /*return*/];
+        }
+    });
+}); });
 export default router;
