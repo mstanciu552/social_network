@@ -48,6 +48,12 @@ router.delete("/:id", (req, res) => {
   db.query(`delete from articles where id=${req.params.id}`, (err, result) => {
     if (err) throw err;
     console.log(result);
+    db.query(
+      `delete from comments where article=${req.params.id}`,
+      (errComm, resComm) => {
+        if (errComm) throw errComm;
+      }
+    );
     return res.send("Article deleted");
   });
 });
@@ -58,6 +64,40 @@ router.get("/user/:id", (req, res) => {
     (err, result) => {
       if (err) throw err;
       return res.send(result);
+    }
+  );
+});
+
+// Comments on this article
+router.get("/:id/comments", (req, res) => {
+  db.query(
+    `select comment from comments where comments.article=(select id from articles where id=${req.params.id})`,
+    (err, result) => {
+      if (err) throw err;
+      return res.send(result);
+    }
+  );
+});
+
+router.post("/:id/comments/", (req, res) => {
+  const comment = req.body;
+  db.query(
+    `insert into comments(comment, author, article) values ('${comment.comment}', '${comment.author}', '${req.params.id}')`,
+    (err, result) => {
+      if (err) throw err;
+      console.log(result);
+      return res.send("Comment added");
+    }
+  );
+});
+
+router.delete("/:id/comments/:comment", (req, res) => {
+  db.query(
+    `delete from comments where id=${req.params.comment}`,
+    (err, result) => {
+      if (err) throw err;
+      console.log(result);
+      return res.send("Comment deleted");
     }
   );
 });

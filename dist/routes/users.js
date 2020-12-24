@@ -30,18 +30,42 @@ router.put("/:id", function (req, res) {
         if (err)
             throw err;
         console.log(result);
-        return res.sendStatus(200);
+        return res;
     });
 });
 router.delete("/:id", function (req, res) {
     db.query("delete from users where id=" + req.params.id, function (err, result) {
         if (err)
             throw err;
-        return res.send("User deleted").sendStatus(200);
+        db.query("delete from articles where articles.author=" + req.params.id, function (errArt, resArt) {
+            if (errArt)
+                throw errArt;
+        });
+        db.query("delete from comments where comments.author=" + req.params.id, function (errComm, resultComm) {
+            if (errComm)
+                throw errComm;
+            console.log(resultComm);
+            return res.send("User deleted");
+        });
     });
 });
 router.get("/:id/articles/", function (req, res) {
     db.query("select title, body from articles where articles.id=" + req.params.id, function (err, result) {
+        if (err)
+            throw err;
+        return res.send(result);
+    });
+});
+// Comment handling
+router.get("/:id/comments", function (req, res) {
+    db.query("select comment, article from comments where comments.author=(select id from users where id=" + req.params.id + ")", function (err, result) {
+        if (err)
+            throw err;
+        return res.send(result);
+    });
+});
+router.get("/:id/comments/:comment", function (req, res) {
+    db.query("select * from comments where id=" + req.params.comment + " and author=(select id from users where id=" + req.params.id + ")", function (err, result) {
         if (err)
             throw err;
         return res.send(result);
@@ -52,7 +76,7 @@ router.delete("/", function (req, res) {
     db.query("delete from users", function (err, result) {
         if (err)
             throw err;
-        return res.send("All users deleted").sendStatus(200);
+        return res.send("All users deleted");
     });
 });
 export default router;

@@ -38,6 +38,10 @@ router.delete("/:id", function (req, res) {
         if (err)
             throw err;
         console.log(result);
+        db.query("delete from comments where article=" + req.params.id, function (errComm, resComm) {
+            if (errComm)
+                throw errComm;
+        });
         return res.send("Article deleted");
     });
 });
@@ -46,6 +50,31 @@ router.get("/user/:id", function (req, res) {
         if (err)
             throw err;
         return res.send(result);
+    });
+});
+// Comments on this article
+router.get("/:id/comments", function (req, res) {
+    db.query("select comment from comments where comments.article=(select id from articles where id=" + req.params.id + ")", function (err, result) {
+        if (err)
+            throw err;
+        return res.send(result);
+    });
+});
+router.post("/:id/comments/", function (req, res) {
+    var comment = req.body;
+    db.query("insert into comments(comment, author, article) values ('" + comment.comment + "', '" + comment.author + "', '" + req.params.id + "')", function (err, result) {
+        if (err)
+            throw err;
+        console.log(result);
+        return res.send("Comment added");
+    });
+});
+router.delete("/:id/comments/:comment", function (req, res) {
+    db.query("delete from comments where id=" + req.params.comment, function (err, result) {
+        if (err)
+            throw err;
+        console.log(result);
+        return res.send("Comment deleted");
     });
 });
 // Dev utilities

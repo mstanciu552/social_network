@@ -36,7 +36,7 @@ router.put("/:id", (req, res) => {
     (err, result) => {
       if (err) throw err;
       console.log(result);
-      return res.sendStatus(200);
+      return res;
     }
   );
 });
@@ -44,7 +44,20 @@ router.put("/:id", (req, res) => {
 router.delete("/:id", (req, res) => {
   db.query(`delete from users where id=${req.params.id}`, (err, result) => {
     if (err) throw err;
-    return res.send("User deleted").sendStatus(200);
+    db.query(
+      `delete from articles where articles.author=${req.params.id}`,
+      (errArt, resArt) => {
+        if (errArt) throw errArt;
+      }
+    );
+    db.query(
+      `delete from comments where comments.author=${req.params.id}`,
+      (errComm, resultComm) => {
+        if (errComm) throw errComm;
+        console.log(resultComm);
+        return res.send("User deleted");
+      }
+    );
   });
 });
 
@@ -58,11 +71,32 @@ router.get("/:id/articles/", (req, res) => {
   );
 });
 
+// Comment handling
+router.get("/:id/comments", (req, res) => {
+  db.query(
+    `select comment, article from comments where comments.author=(select id from users where id=${req.params.id})`,
+    (err, result) => {
+      if (err) throw err;
+      return res.send(result);
+    }
+  );
+});
+
+router.get("/:id/comments/:comment", (req, res) => {
+  db.query(
+    `select * from comments where id=${req.params.comment} and author=(select id from users where id=${req.params.id})`,
+    (err, result) => {
+      if (err) throw err;
+      return res.send(result);
+    }
+  );
+});
+
 // Dev utilities
 router.delete("/", (req, res) => {
   db.query(`delete from users`, (err, result) => {
     if (err) throw err;
-    return res.send("All users deleted").sendStatus(200);
+    return res.send("All users deleted");
   });
 });
 
