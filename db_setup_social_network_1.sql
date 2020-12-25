@@ -1,3 +1,5 @@
+-- Initial setup
+
 drop table if exists comments;
 drop table if exists articles;
 drop table if exists users;
@@ -5,9 +7,11 @@ drop table if exists users;
 
 create table users (
     id INT NOT NULL AUTO_INCREMENT,
+    username VARCHAR(25) NOT NULL,
     first_name VARCHAR(25) NOT NULL,
     last_name VARCHAR(25) NOT NULL,
     pass VARCHAR(25) NOT NULL, 
+    description VARCHAR(300),
     PRIMARY KEY (id)
 );
 

@@ -1,17 +1,30 @@
 import React from "react";
+import Home from "./components/Home";
 import Article from "./components/Article";
+import Profile from "./components/Profile";
+import Navbar from "./components/Navbar";
+import Login from "./components/Login";
+import Register from "./components/Register";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { match } from "assert";
 
 function App() {
   return (
     <React.Fragment>
       <Router>
-        <div>{/* <Article id={1}></Article> */}</div>
+        <div>
+          <Navbar></Navbar>
+        </div>
+        <Route exact path="/" component={Home} />
         <Route
           path="/article/:id"
           render={({ match }) => <Article id={match.params.id}></Article>}
         />
+        <Route
+          path="/user/:id"
+          render={({ match }) => <Profile id={match.params.id}></Profile>}
+        />
+        <Route path="/login" component={Login} />
+        <Route path="/register" component={Register} />
       </Router>
     </React.Fragment>
   );

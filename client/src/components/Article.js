@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 const Article = ({ id }) => {
@@ -32,9 +33,9 @@ const Article = ({ id }) => {
         <div className="w-full h-1/4 flex justify-end border-t-2 border-gray-200">
           <p className="px-10 text-xl">
             by{" "}
-            <a className="hover:text-indigo-600" href="#">
+            <Link className="hover:text-indigo-600" to={`/user/${author.id}`}>
               {author.first_name + " " + author.last_name}
-            </a>
+            </Link>
           </p>
         </div>
       </div>

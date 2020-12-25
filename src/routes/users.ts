@@ -20,7 +20,7 @@ router.get("/:id", (req, res) => {
 router.post("/", (req, res) => {
   const user = req.body;
   db.query(
-    `insert into users(first_name, last_name, pass) values ('${user.first_name}', '${user.last_name}', '${user.pass}')`,
+    `insert into users(username, first_name, last_name, pass, description) values ('${user.username}', '${user.first_name}', '${user.last_name}', '${user.pass}', '${user.description}')`,
     (err, result) => {
       if (err) throw err;
       console.log(result);
@@ -30,9 +30,20 @@ router.post("/", (req, res) => {
 });
 
 router.put("/:id", (req, res) => {
+  db.query(
+    `update users set description='${req.body.description}' where id=${req.params.id}`,
+    (err, result) => {
+      if (err) throw err;
+      console.log(result);
+      return res;
+    }
+  );
+});
+
+router.put("/:id", (req, res) => {
   const user = req.body;
   db.query(
-    `update users set first_name='${user.first_name}', last_name='${user.last_name}' where id=${req.params.id}`,
+    `update users set username='${user.username}', first_name='${user.first_name}', last_name='${user.last_name}' where id=${req.params.id}`,
     (err, result) => {
       if (err) throw err;
       console.log(result);
@@ -88,6 +99,18 @@ router.get("/:id/comments/:comment", (req, res) => {
     (err, result) => {
       if (err) throw err;
       return res.send(result);
+    }
+  );
+});
+
+// Authentication
+router.post("/login", (req, res) => {
+  var user;
+  db.query(
+    `select username, pass from users where users.username='${req.body.username}'`,
+    (err, result) => {
+      if (err) throw err;
+      user = result;
     }
   );
 });
