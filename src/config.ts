@@ -1,7 +1,8 @@
 import mysql from "mysql";
+import dotenv from "dotenv";
 
 // Config DB
-const db = mysql.createConnection({
+export const db = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "",
@@ -14,4 +15,6 @@ export const configdb = () => {
   });
 };
 
-export { db };
+export const envConfig = () => {
+  dotenv.config();
+};

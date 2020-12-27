@@ -17,7 +17,7 @@ router.get("/:id", function (req, res) {
 });
 router.post("/", function (req, res) {
     var user = req.body;
-    db.query("insert into users(first_name, last_name, pass) values ('" + user.first_name + "', '" + user.last_name + "', '" + user.pass + "')", function (err, result) {
+    db.query("insert into users(username, first_name, last_name, pass, description) values ('" + user.username + "', '" + user.first_name + "', '" + user.last_name + "', '" + user.pass + "', '" + user.description + "')", function (err, result) {
         if (err)
             throw err;
         console.log(result);
@@ -25,8 +25,16 @@ router.post("/", function (req, res) {
     });
 });
 router.put("/:id", function (req, res) {
+    db.query("update users set description='" + req.body.description + "' where id=" + req.params.id, function (err, result) {
+        if (err)
+            throw err;
+        console.log(result);
+        return res;
+    });
+});
+router.put("/:id", function (req, res) {
     var user = req.body;
-    db.query("update users set first_name='" + user.first_name + "', last_name='" + user.last_name + "' where id=" + req.params.id, function (err, result) {
+    db.query("update users set username='" + user.username + "', first_name='" + user.first_name + "', last_name='" + user.last_name + "' where id=" + req.params.id, function (err, result) {
         if (err)
             throw err;
         console.log(result);

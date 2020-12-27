@@ -103,18 +103,6 @@ router.get("/:id/comments/:comment", (req, res) => {
   );
 });
 
-// Authentication
-router.post("/login", (req, res) => {
-  var user;
-  db.query(
-    `select username, pass from users where users.username='${req.body.username}'`,
-    (err, result) => {
-      if (err) throw err;
-      user = result;
-    }
-  );
-});
-
 // Dev utilities
 router.delete("/", (req, res) => {
   db.query(`delete from users`, (err, result) => {

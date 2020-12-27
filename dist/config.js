@@ -1,6 +1,7 @@
 import mysql from "mysql";
+import dotenv from "dotenv";
 // Config DB
-var db = mysql.createConnection({
+export var db = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "",
@@ -13,4 +14,6 @@ export var configdb = function () {
         console.log("DB connection established...");
     });
 };
-export { db };
+export var envConfig = function () {
+    dotenv.config();
+};

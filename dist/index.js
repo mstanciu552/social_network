@@ -1,10 +1,10 @@
 import express from "express";
-import dotenv from "dotenv";
 import cors from "cors";
-import { configdb } from "./config.js";
+import { configdb, envConfig } from "./config.js";
 import routes from "./routes/index.js";
 var app = express();
-dotenv.config();
+// Config dotenv
+envConfig();
 // Middleware
 app.use(express.json());
 app.use(cors({
