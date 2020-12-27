@@ -7,6 +7,7 @@ const Register = () => {
     e.preventDefault();
     axios
       .post(`http://localhost:3030/users`, {
+        username: e.target.username.value,
         first_name: e.target.first_name.value,
         last_name: e.target.last_name.value,
         pass: e.target.pass.value,

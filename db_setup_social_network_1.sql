@@ -10,7 +10,7 @@ create table users (
     username VARCHAR(25) NOT NULL,
     first_name VARCHAR(25) NOT NULL,
     last_name VARCHAR(25) NOT NULL,
-    pass VARCHAR(25) NOT NULL, 
+    pass VARCHAR(300) NOT NULL, 
     description VARCHAR(300),
     PRIMARY KEY (id)
 );
@@ -33,13 +33,3 @@ create table comments (
     FOREIGN KEY (author) REFERENCES users(id),
     FOREIGN KEY (article) REFERENCES articles(id)
 );
-
--- Test data
-insert into users(first_name, last_name, pass) values
-('Mihai', 'Stanciu', '1234');
-
-insert into articles(title, body, author) values
-('test 1', 'First article to test', 1);
-
-insert into comments(comment, author, article) values 
-('Comment test 1', 1, 1);

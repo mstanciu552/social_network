@@ -1,5 +1,7 @@
 import express from "express";
 import { db } from "../config.js";
+import bcrypt from "bcrypt";
+import auth from "./auth.js";
 var router = express.Router();
 router.get("/", function (req, res) {
     db.query("select * from users", function (err, result) {
@@ -17,11 +19,16 @@ router.get("/:id", function (req, res) {
 });
 router.post("/", function (req, res) {
     var user = req.body;
-    db.query("insert into users(username, first_name, last_name, pass, description) values ('" + user.username + "', '" + user.first_name + "', '" + user.last_name + "', '" + user.pass + "', '" + user.description + "')", function (err, result) {
+    bcrypt.hash(user.pass, 10, function (err, hash) {
         if (err)
             throw err;
-        console.log(result);
-        return res.send("User added");
+        console.log(hash);
+        db.query("insert into users(username, first_name, last_name, pass) values ('" + user.username + "', '" + user.first_name + "', '" + user.last_name + "', '" + hash + "')", function (err, result) {
+            if (err)
+                throw err;
+            console.log(result);
+            return res.send("User added");
+        });
     });
 });
 router.put("/:id", function (req, res) {
@@ -32,7 +39,7 @@ router.put("/:id", function (req, res) {
         return res;
     });
 });
-router.put("/:id", function (req, res) {
+router.put("/:id", auth, function (req, res) {
     var user = req.body;
     db.query("update users set username='" + user.username + "', first_name='" + user.first_name + "', last_name='" + user.last_name + "' where id=" + req.params.id, function (err, result) {
         if (err)
@@ -41,7 +48,7 @@ router.put("/:id", function (req, res) {
         return res;
     });
 });
-router.delete("/:id", function (req, res) {
+router.delete("/:id", auth, function (req, res) {
     db.query("delete from users where id=" + req.params.id, function (err, result) {
         if (err)
             throw err;
@@ -57,7 +64,7 @@ router.delete("/:id", function (req, res) {
         });
     });
 });
-router.get("/:id/articles/", function (req, res) {
+router.get("/:id/articles/", auth, function (req, res) {
     db.query("select title, body from articles where articles.id=" + req.params.id, function (err, result) {
         if (err)
             throw err;
