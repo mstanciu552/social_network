@@ -1,14 +1,13 @@
 import React from "react";
-import axios from "axios";
+import API from "../api";
 
 const Login = () => {
   const login = (e) => {
     e.preventDefault();
-    axios
-      .post("http://localhost:3030/login", {
-        username: e.target.username.value,
-        pass: e.target.pass.value,
-      })
+    API.post("/login", {
+      username: e.target.username.value,
+      pass: e.target.pass.value,
+    })
       .then((res) => {
         const { accessToken } = res.data;
         localStorage.setItem("accessToken", accessToken);

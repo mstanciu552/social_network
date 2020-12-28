@@ -37,7 +37,7 @@ router.post("/", (req: Request, res: Response) => {
   });
 });
 
-router.put("/:id", (req: Request, res: Response) => {
+router.put("/:id", auth, (req: Request, res: Response) => {
   db.query(
     `update users set description='${req.body.description}' where id=${req.params.id}`,
     (err, result) => {

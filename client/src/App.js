@@ -19,10 +19,7 @@ function App() {
           path="/article/:id"
           render={({ match }) => <Article id={match.params.id}></Article>}
         />
-        <Route
-          path="/user/:id"
-          render={({ match }) => <Profile id={match.params.id}></Profile>}
-        />
+        <Route path="/user/:id" component={Profile} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
       </Router>

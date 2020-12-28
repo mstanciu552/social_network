@@ -1,17 +1,16 @@
 import React from "react";
-import axios from "axios";
+import API from "../api";
 import Alert from "./Alert";
 
 const Register = () => {
   const register = (e) => {
     e.preventDefault();
-    axios
-      .post(`http://localhost:3030/users`, {
-        username: e.target.username.value,
-        first_name: e.target.first_name.value,
-        last_name: e.target.last_name.value,
-        pass: e.target.pass.value,
-      })
+    API.post(`/users`, {
+      username: e.target.username.value,
+      first_name: e.target.first_name.value,
+      last_name: e.target.last_name.value,
+      pass: e.target.pass.value,
+    })
       .then((res) => {
         window.location.href = "/";
         return <Alert type="success" res={res}></Alert>;

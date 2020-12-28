@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import API from "../api";
 
 const Article = ({ id }) => {
   const [article, setArticle] = useState({});
   const [author, setAuthor] = useState({});
   useEffect(() => {
-    axios
-      .get(`http://localhost:3030/articles/${id}`)
+    API.get(`/articles/${id}`)
       .then((res) => {
         setArticle(res.data[0]);
-        axios
-          .get(`http://localhost:3030/users/${res.data[0].author}`)
+        API.get(`/users/${res.data[0].author}`)
           .then((response) => {
             setAuthor(response.data[0]);
           })

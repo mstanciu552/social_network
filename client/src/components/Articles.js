@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import API from "../api";
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
   useEffect(() => {
-    axios
-      .get(`http://localhost:3030/articles`)
+    API.get(`/articles`)
       .then((res) => {
         setArticles(res.data);
       })
