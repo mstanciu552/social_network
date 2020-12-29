@@ -54,13 +54,13 @@ router.get("/user/:id", function (req, res) {
 });
 // Comments on this article
 router.get("/:id/comments", function (req, res) {
-    db.query("select comment from comments where comments.article=(select id from articles where id=" + req.params.id + ")", function (err, result) {
+    db.query("select * from comments where comments.article=(select id from articles where id=" + req.params.id + ")", function (err, result) {
         if (err)
             throw err;
         return res.send(result);
     });
 });
-router.post("/:id/comments/", function (req, res) {
+router.post("/:id/comments", function (req, res) {
     var comment = req.body;
     db.query("insert into comments(comment, author, article) values ('" + comment.comment + "', '" + comment.author + "', '" + req.params.id + "')", function (err, result) {
         if (err)

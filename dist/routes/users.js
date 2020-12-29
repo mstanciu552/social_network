@@ -31,7 +31,7 @@ router.post("/", function (req, res) {
         });
     });
 });
-router.put("/:id", function (req, res) {
+router.put("/:id", auth, function (req, res) {
     db.query("update users set description='" + req.body.description + "' where id=" + req.params.id, function (err, result) {
         if (err)
             throw err;

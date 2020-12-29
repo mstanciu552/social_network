@@ -71,7 +71,7 @@ router.get("/user/:id", (req: Request, res: Response) => {
 // Comments on this article
 router.get("/:id/comments", (req: Request, res: Response) => {
   db.query(
-    `select comment from comments where comments.article=(select id from articles where id=${req.params.id})`,
+    `select * from comments where comments.article=(select id from articles where id=${req.params.id})`,
     (err, result) => {
       if (err) throw err;
       return res.send(result);
@@ -79,7 +79,7 @@ router.get("/:id/comments", (req: Request, res: Response) => {
   );
 });
 
-router.post("/:id/comments/", (req: Request, res: Response) => {
+router.post("/:id/comments", (req: Request, res: Response) => {
   const comment = req.body;
   db.query(
     `insert into comments(comment, author, article) values ('${comment.comment}', '${comment.author}', '${req.params.id}')`,
