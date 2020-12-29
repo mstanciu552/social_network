@@ -17,13 +17,14 @@ function App() {
         </div>
         <Route exact path="/" component={Home} />
         <Route
+          exact
           path="/article/:id"
           render={({ match }) => <Article id={match.params.id}></Article>}
         />
         <Route path="/user/:id" component={Profile} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
-        <Route path="/article" component={NewArticle} />
+        <Route exact path="/article" component={NewArticle} />
       </Router>
     </React.Fragment>
   );

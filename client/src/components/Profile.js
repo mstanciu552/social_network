@@ -8,6 +8,7 @@ const Profile = () => {
   const [loggedIn] = useState(jwt_decode(localStorage.getItem("accessToken")));
   const [isOpen, setOpen] = useState(false);
   const formRef = useRef();
+  const descRef = useRef();
   useEffect(() => {
     if (loggedIn) {
       API.get(`/users/${loggedIn.id}`)
@@ -23,9 +24,11 @@ const Profile = () => {
     if (!isOpen) {
       formRef.current.classList.remove("hidden");
       formRef.current.classList.add("flex");
+      descRef.current.classList.add("hidden");
     } else {
       formRef.current.classList.remove("flex");
       formRef.current.classList.add("hidden");
+      descRef.current.classList.remove("hidden");
     }
   };
 
@@ -40,25 +43,28 @@ const Profile = () => {
   };
 
   return (
-    <div className="w-full flex flex-col items-center justify-around">
+    <div className="w-full h-full flex flex-col items-center justify-around">
       <h1 className="text-3xl">{user.first_name + " " + user.last_name}</h1>
       <div>
         {user.description ? (
-          <p className="my-20 text-2xl">
+          <p ref={descRef} className="my-20 text-2xl">
             <b>Description:</b> {user.description}
           </p>
         ) : undefined}
         <br />
-        <div className="w-96 h-96 flex flex-col items-center justify-around">
-          <button onClick={showForm} className="w-32 h-10 bg-indigo-500">
+        <div className="h-1/2 flex flex-col items-center justify-around gap-10">
+          <button
+            onClick={showForm}
+            className="w-32 h-10 bg-indigo-500 text-gray-100 focus:outline-none"
+          >
             Set Description
           </button>
           <form
             ref={formRef}
             onSubmit={updateDescription}
-            className="hidden mx-10 w-1/3 flex-col"
+            className="w-3/4 hidden mx-10 flex-col"
           >
-            <input
+            <textarea
               className="my-10 pb-40 p-2 bg-gray-100 focus:outline-none border-2 focus:border-indigo-500"
               type="text"
               name="description"

@@ -20,12 +20,12 @@ const Article = ({ id }) => {
   return (
     <div className="w-full h-screen flex items-center justify-center">
       <div className="w-3/4 h-3/4 border-2 rounded-lg border-gray-200 flex flex-col">
-        <div class="h-1/3">
+        <div className="h-1/3">
           <h1 className="p-10 text-4xl text-indigo-600 border-b-2 border-gray-200">
             {article.title}
           </h1>
         </div>
-        <div class="w-full h-1/2">
+        <div className="w-full h-1/2">
           <p className="px-10 text-lg">{article.body}</p>
         </div>
         <div className="w-full h-1/4 flex justify-end border-t-2 border-gray-200">
