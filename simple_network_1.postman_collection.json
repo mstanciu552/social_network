@@ -1,0 +1,953 @@
+{
+  "info": {
+    "_postman_id": "c7e056bf-2b2d-469f-b2de-55c6c640aeca",
+    "name": "simple_network_1",
+    "description": "# Introduction\nWhat does your API do?\n\nThe API provides user authentication and creating articles and comments.\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "http://localhost:3030/users",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:3030/users",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3030",
+          "path": ["users"]
+        },
+        "description": "Get all users"
+      },
+      "response": [
+        {
+          "name": "Default",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:3030/users",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3030",
+              "path": ["users"]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": ""
+        }
+      ]
+    },
+    {
+      "name": "http://localhost:3030/users/:id",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:3030/users/:id",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3030",
+          "path": ["users", ":id"],
+          "variable": [
+            {
+              "key": "id"
+            }
+          ]
+        },
+        "description": "Get single user"
+      },
+      "response": [
+        {
+          "name": "Default",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:3030/users/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3030",
+              "path": ["users", ":id"],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": ""
+        }
+      ]
+    },
+    {
+      "name": "http://localhost:3030/users",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:3030/users",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3030",
+          "path": ["users"]
+        },
+        "description": "Add user"
+      },
+      "response": [
+        {
+          "name": "Default",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:3030/users",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3030",
+              "path": ["users"]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": ""
+        }
+      ]
+    },
+    {
+      "name": "http://localhost:3030/users/:id",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:3030/users/:id",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3030",
+          "path": ["users", ":id"],
+          "variable": [
+            {
+              "key": "id"
+            }
+          ]
+        },
+        "description": "Update user"
+      },
+      "response": [
+        {
+          "name": "Default",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:3030/users/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3030",
+              "path": ["users", ":id"],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": ""
+        }
+      ]
+    },
+    {
+      "name": "http://localhost:3030/users/:id",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:3030/users/:id",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3030",
+          "path": ["users", ":id"],
+          "variable": [
+            {
+              "key": "id"
+            }
+          ]
+        },
+        "description": "Delete user"
+      },
+      "response": [
+        {
+          "name": "Default",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:3030/users/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3030",
+              "path": ["users", ":id"],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": ""
+        }
+      ]
+    },
+    {
+      "name": "http://localhost:3030/users/:id/articles",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:3030/users/:id/articles",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3030",
+          "path": ["users", ":id", "articles"],
+          "variable": [
+            {
+              "key": "id"
+            }
+          ]
+        },
+        "description": "Get specific user's articles"
+      },
+      "response": [
+        {
+          "name": "Default",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:3030/users/:id/articles",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3030",
+              "path": ["users", ":id", "articles"],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": ""
+        }
+      ]
+    },
+    {
+      "name": "http://localhost:3030/users/:id/comments",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:3030/users/:id/comments",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3030",
+          "path": ["users", ":id", "comments"],
+          "variable": [
+            {
+              "key": "id"
+            }
+          ]
+        },
+        "description": "Get specific user's comments"
+      },
+      "response": [
+        {
+          "name": "Default",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:3030/users/:id/comments",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3030",
+              "path": ["users", ":id", "comments"],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": ""
+        }
+      ]
+    },
+    {
+      "name": "http://localhost:3030/users/:id/comments/:comment",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:3030/users/:id/comments/:comment",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3030",
+          "path": ["users", ":id", "comments", ":comment"],
+          "variable": [
+            {
+              "key": "id"
+            },
+            {
+              "key": "comment"
+            }
+          ]
+        },
+        "description": "Get specific user's specific comment"
+      },
+      "response": [
+        {
+          "name": "Default",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:3030/users/:id/comments/:comment",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3030",
+              "path": ["users", ":id", "comments", ":comment"],
+              "variable": [
+                {
+                  "key": "id"
+                },
+                {
+                  "key": "comment"
+                }
+              ]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": ""
+        }
+      ]
+    },
+    {
+      "name": "http://localhost:3030/articles",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:3030/articles",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3030",
+          "path": ["articles"]
+        },
+        "description": "Get all articles"
+      },
+      "response": [
+        {
+          "name": "Default",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:3030/articles",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3030",
+              "path": ["articles"]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": ""
+        }
+      ]
+    },
+    {
+      "name": "http://localhost:3030/articles/:id",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:3030/articles/:id",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3030",
+          "path": ["articles", ":id"],
+          "variable": [
+            {
+              "key": "id"
+            }
+          ]
+        },
+        "description": "Get single article"
+      },
+      "response": [
+        {
+          "name": "Default",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:3030/articles/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3030",
+              "path": ["articles", ":id"],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": ""
+        }
+      ]
+    },
+    {
+      "name": "http://localhost:3030/articles",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:3030/articles",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3030",
+          "path": ["articles"]
+        },
+        "description": "Add article"
+      },
+      "response": [
+        {
+          "name": "Default",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:3030/articles",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3030",
+              "path": ["articles"]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": ""
+        }
+      ]
+    },
+    {
+      "name": "http://localhost:3030/articles/:id",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:3030/articles/:id",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3030",
+          "path": ["articles", ":id"],
+          "variable": [
+            {
+              "key": "id"
+            }
+          ]
+        },
+        "description": "Update article"
+      },
+      "response": [
+        {
+          "name": "Default",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:3030/articles/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3030",
+              "path": ["articles", ":id"],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": ""
+        }
+      ]
+    },
+    {
+      "name": "http://localhost:3030/articles/:id",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:3030/articles/:id",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3030",
+          "path": ["articles", ":id"],
+          "variable": [
+            {
+              "key": "id"
+            }
+          ]
+        },
+        "description": "Delete article"
+      },
+      "response": [
+        {
+          "name": "Default",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:3030/articles/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3030",
+              "path": ["articles", ":id"],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": ""
+        }
+      ]
+    },
+    {
+      "name": "http://localhost:3030/articles/user/:id",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:3030/articles/user/:id",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3030",
+          "path": ["articles", "user", ":id"],
+          "variable": [
+            {
+              "key": "id"
+            }
+          ]
+        },
+        "description": "Get specific user's articles"
+      },
+      "response": [
+        {
+          "name": "Default",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:3030/articles/user/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3030",
+              "path": ["articles", "user", ":id"],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": ""
+        }
+      ]
+    },
+    {
+      "name": "http://localhost:3030/articles/:id/comments",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:3030/articles/:id/comments",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3030",
+          "path": ["articles", ":id", "comments"],
+          "variable": [
+            {
+              "key": "id"
+            }
+          ]
+        },
+        "description": "Get the comments of this article"
+      },
+      "response": [
+        {
+          "name": "Default",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:3030/articles/:id/comments",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3030",
+              "path": ["articles", ":id", "comments"],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": ""
+        }
+      ]
+    },
+    {
+      "name": "http://localhost:3030/articles/:id/comments",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:3030/articles/:id/comments",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3030",
+          "path": ["articles", ":id", "comments"],
+          "variable": [
+            {
+              "key": "id"
+            }
+          ]
+        },
+        "description": "Add comment on specific post"
+      },
+      "response": [
+        {
+          "name": "Default",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:3030/articles/:id/comments",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3030",
+              "path": ["articles", ":id", "comments"],
+              "variable": [
+                {
+                  "key": "id"
+                }
+              ]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": ""
+        }
+      ]
+    },
+    {
+      "name": "http://localhost:3030/articles/:id/comments/:comment",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:3030/articles/:id/comments/:comment",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3030",
+          "path": ["articles", ":id", "comments", ":comment"],
+          "variable": [
+            {
+              "key": "id"
+            },
+            {
+              "key": "comment"
+            }
+          ]
+        },
+        "description": "Delete comment from specific article"
+      },
+      "response": [
+        {
+          "name": "Default",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:3030/articles/:id/comments/:comment",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3030",
+              "path": ["articles", ":id", "comments", ":comment"],
+              "variable": [
+                {
+                  "key": "id"
+                },
+                {
+                  "key": "comment"
+                }
+              ]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": ""
+        }
+      ]
+    },
+    {
+      "name": "http://localhost:3030/login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:3030/login",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3030",
+          "path": ["login"]
+        },
+        "description": "Login endpoint"
+      },
+      "response": [
+        {
+          "name": "Default",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:3030/login",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3030",
+              "path": ["login"]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": ""
+        }
+      ]
+    }
+  ]
+}

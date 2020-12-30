@@ -77,9 +77,10 @@ const Article = ({ id }) => {
             onSubmit={addComment}
           >
             <textarea
-              className="w-3/4 bg-gray-100 border-2 border-indigo-500 rounded-lg"
+              className="px-2 bg-gray-100w-3/4 bg-gray-100 border-2 border-indigo-500 rounded-lg"
               name="comment"
               id="comment"
+              cols="80"
             ></textarea>
             <input
               className="w-20 h-10 bg-indigo-500 text-gray-100 cursor-pointer inline-block"
@@ -91,11 +92,11 @@ const Article = ({ id }) => {
             {comments.map((comment) => (
               <div
                 key={comment.id}
-                className="flex items-center justify-between"
+                className="my-5 flex items-center justify-between"
               >
                 <p>{comment.comment}</p>
                 <p>
-                  {username.id == comment.id ? username.username : undefined}
+                  ~ {username.id == comment.id ? username.username : undefined}
                 </p>
               </div>
             ))}
