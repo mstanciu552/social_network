@@ -64,4 +64,5 @@ DELETE | http://localhost:3030/articles/:id/comments/:comment | ` authorization:
 ### Authentication
 Operation | Route | Headers | Description
 :---: | :---: | :---: | :---:
+POST | http://localhost:3030/register | - | Registration endpoint
 POST | http://localhost:3030/login | - | Login endpoint
